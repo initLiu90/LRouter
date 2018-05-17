@@ -1,0 +1,44 @@
+apply plugin: 'com.android.library'
+
+android {
+    compileSdkVersion 27
+
+    defaultConfig {
+        minSdkVersion 15
+        targetSdkVersion 27
+        versionCode 1
+        versionName "1.0"
+
+        javaCompileOptions {
+            annotationProcessorOptions {
+                arguments = [ moduleName : project.getName() ]
+                includeCompileClasspath = true
+            }
+        }
+
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+}
+
+//gradle.buildFinished {
+//    copy{
+//        from 'build/outputs/aar/demo1-debug.aar'
+//        into '../app/libs/'
+//    }
+//}
+
+dependencies {
+    implementation fileTree(include: ['*.jar'], dir: 'libs')
+    implementation 'com.android.support:appcompat-v7:27.1.1'
+    compileOnly 'com.google.auto.service:auto-service:1.0-rc2'
+    compileOnly 'com.squareup:javapoet:1.8.0'
+    annotationProcessor project(':compiler')
+    implementation project(':annotation')
+    api project(':api')
+}

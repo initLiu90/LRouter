@@ -1,0 +1,2 @@
+[group:demo1,path:/demo1/activity1,destination:com.test.demo1.Demo1Activity,type:ACTIVITY]
+[group:demo1,path:/demo1/activity2,destination:com.test.demo1.Demo1Activity2,type:ACTIVITY]
