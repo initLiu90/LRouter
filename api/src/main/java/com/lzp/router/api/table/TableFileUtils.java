@@ -1,12 +1,10 @@
 package com.lzp.router.api.table;
 
-import com.google.gson.reflect.TypeToken;
 import com.lzp.router.api.utils.RLog;
 
 import java.io.BufferedReader;
 import java.io.InputStream;
 import java.io.InputStreamReader;
-import java.lang.reflect.Type;
 import java.util.HashMap;
 import java.util.LinkedHashMap;
 import java.util.Map;

@@ -11,7 +11,7 @@ import com.lzp.router.api.utils.RLog;
 /**
  * 对外接口类
  */
-public class Route {
+public class Router {
     public static void init(Application application) {
         try {
             RouterTable.getInstance().initRouterTable(application.getApplicationContext());

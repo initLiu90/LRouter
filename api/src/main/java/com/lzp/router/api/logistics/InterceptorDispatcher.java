@@ -5,11 +5,11 @@ import com.lzp.router.api.table.RouterMeta;
 
 class InterceptorDispatcher implements Interceptor.Chain {
     private int mIndex;
-    private Router mRouter;
+    private Route mRouter;
     private RouterMeta mMeta;
     private RouterCallback mCallback;
 
-    public InterceptorDispatcher(Router router, RouterMeta meta, int index, RouterCallback callback) {
+    public InterceptorDispatcher(Route router, RouterMeta meta, int index, RouterCallback callback) {
         mRouter = router;
         mIndex = index;
         mMeta = meta;
@@ -33,7 +33,7 @@ class InterceptorDispatcher implements Interceptor.Chain {
     }
 
     @Override
-    public Router getRouter() {
+    public Route getRouter() {
         return mRouter;
     }
 

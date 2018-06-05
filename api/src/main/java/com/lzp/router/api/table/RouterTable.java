@@ -10,7 +10,7 @@ import java.util.LinkedHashMap;
 import java.util.Map;
 
 public class RouterTable {
-    private static RouterTable sInstance;
+    private static volatile RouterTable sInstance;
     private Map<String, Map<String, RouterMeta>> mRouterTables;
 
     private RouterTable() {

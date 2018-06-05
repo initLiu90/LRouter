@@ -12,7 +12,7 @@ import com.lzp.router.api.utils.TextUtils;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Router {
+public class Route {
     private int mRequestCode;
     private String mPath;
     private Uri mUri;
@@ -23,10 +23,10 @@ public class Router {
 
     private static final String RAW_URI = "a08ad5de46a0d4d3";
 
-    private Router() {
+    private Route() {
     }
 
-    Router(RouterBuilder builder) {
+    Route(RouterBuilder builder) {
         mRequestCode = builder.requestCode;
         mPath = builder.path;
         mUri = builder.uri;

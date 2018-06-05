@@ -15,7 +15,7 @@ public class RealCallInterceptor implements Interceptor {
     public boolean intercept(Chain chain) {
         RLog.i(TAG, "intercept");
 
-        Router router = chain.getRouter();
+        Route router = chain.getRouter();
         RouterMeta meta = chain.getRouterMeta();
 
         RLog.i(TAG, "startActivity action type=" + chain.getRouterMeta().getType().name());

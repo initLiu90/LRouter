@@ -9,7 +9,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 class Dispatcher {
-    public static void dispatch(Router router, RouterCallback callback) {
+    public static void dispatch(Route router, RouterCallback callback) {
         RouterMeta meta = RouterTable.getInstance().getRouterMeta(router.getPath());
         RLog.i("Dispatcher", meta == null ? "not found RouterMeta for path=" + router.getPath() : "find RouterMeta:" + meta.toString());
 
