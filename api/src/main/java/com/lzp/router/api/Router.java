@@ -4,7 +4,7 @@ import android.app.Application;
 import android.content.Context;
 import android.net.Uri;
 
-import com.lzp.router.api.logistics.RouterBuilder;
+import com.lzp.router.api.logistics.RouteBuilder;
 import com.lzp.router.api.table.RouterTable;
 import com.lzp.router.api.utils.RLog;
 
@@ -24,11 +24,11 @@ public class Router {
         RLog.setDebug(debug);
     }
 
-    public static RouterBuilder build(Context context, String path) {
-        return new RouterBuilder(context, path);
+    public static RouteBuilder build(Context context, String path) {
+        return new RouteBuilder(context, path);
     }
 
-    public static RouterBuilder build(Context context, Uri uri) {
-        return new RouterBuilder(context, uri);
+    public static RouteBuilder build(Context context, Uri uri) {
+        return new RouteBuilder(context, uri);
     }
 }

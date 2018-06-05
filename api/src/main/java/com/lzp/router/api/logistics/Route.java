@@ -26,7 +26,7 @@ public class Route {
     private Route() {
     }
 
-    Route(RouterBuilder builder) {
+    Route(RouteBuilder builder) {
         mRequestCode = builder.requestCode;
         mPath = builder.path;
         mUri = builder.uri;

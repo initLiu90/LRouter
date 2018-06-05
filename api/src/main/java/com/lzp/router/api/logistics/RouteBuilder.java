@@ -21,8 +21,8 @@ import java.util.Map;
  * Router配置类
  * 配置path，uri，requestCode 启动参数等
  */
-public class RouterBuilder {
-    private static final String TAG = RouterBuilder.class.getSimpleName();
+public class RouteBuilder {
+    private static final String TAG = RouteBuilder.class.getSimpleName();
 
     Bundle extras;
     int requestCode = -1;
@@ -32,14 +32,14 @@ public class RouterBuilder {
     Context context;
     List<Interceptor> interceptors;
 
-    public RouterBuilder(Context context, String path) {
+    public RouteBuilder(Context context, String path) {
         this.context = context;
 
         this.path = path;
         this.uri = null;
     }
 
-    public RouterBuilder(Context context, Uri uri) {
+    public RouteBuilder(Context context, Uri uri) {
         if (uri == null || TextUtils.isEmpty(uri.toString()))
             throw new HandlerException("param uri is invalid");
 
@@ -57,7 +57,7 @@ public class RouterBuilder {
     }
 
 
-    public RouterBuilder putExtra(String name, boolean value) {
+    public RouteBuilder putExtra(String name, boolean value) {
         if (this.extras == null) {
             this.extras = new Bundle();
         }
@@ -76,7 +76,7 @@ public class RouterBuilder {
      * into a single statement.
      * @see #putExtras
      */
-    public RouterBuilder putExtra(String name, byte value) {
+    public RouteBuilder putExtra(String name, byte value) {
         if (this.extras == null) {
             this.extras = new Bundle();
         }
@@ -95,7 +95,7 @@ public class RouterBuilder {
      * into a single statement.
      * @see #putExtras
      */
-    public RouterBuilder putExtra(String name, char value) {
+    public RouteBuilder putExtra(String name, char value) {
         if (this.extras == null) {
             this.extras = new Bundle();
         }
@@ -114,7 +114,7 @@ public class RouterBuilder {
      * into a single statement.
      * @see #putExtras
      */
-    public RouterBuilder putExtra(String name, short value) {
+    public RouteBuilder putExtra(String name, short value) {
         if (this.extras == null) {
             this.extras = new Bundle();
         }
@@ -133,7 +133,7 @@ public class RouterBuilder {
      * into a single statement.
      * @see #putExtras
      */
-    public RouterBuilder putExtra(String name, int value) {
+    public RouteBuilder putExtra(String name, int value) {
         if (this.extras == null) {
             this.extras = new Bundle();
         }
@@ -152,7 +152,7 @@ public class RouterBuilder {
      * into a single statement.
      * @see #putExtras
      */
-    public RouterBuilder putExtra(String name, long value) {
+    public RouteBuilder putExtra(String name, long value) {
         if (this.extras == null) {
             this.extras = new Bundle();
         }
@@ -171,7 +171,7 @@ public class RouterBuilder {
      * into a single statement.
      * @see #putExtras
      */
-    public RouterBuilder putExtra(String name, float value) {
+    public RouteBuilder putExtra(String name, float value) {
         if (this.extras == null) {
             this.extras = new Bundle();
         }
@@ -190,7 +190,7 @@ public class RouterBuilder {
      * into a single statement.
      * @see #putExtras
      */
-    public RouterBuilder putExtra(String name, double value) {
+    public RouteBuilder putExtra(String name, double value) {
         if (this.extras == null) {
             this.extras = new Bundle();
         }
@@ -209,7 +209,7 @@ public class RouterBuilder {
      * into a single statement.
      * @see #putExtras
      */
-    public RouterBuilder putExtra(String name, String value) {
+    public RouteBuilder putExtra(String name, String value) {
         if (this.extras == null) {
             this.extras = new Bundle();
         }
@@ -228,7 +228,7 @@ public class RouterBuilder {
      * into a single statement.
      * @see #putExtras
      */
-    public RouterBuilder putExtra(String name, CharSequence value) {
+    public RouteBuilder putExtra(String name, CharSequence value) {
         if (this.extras == null) {
             this.extras = new Bundle();
         }
@@ -247,7 +247,7 @@ public class RouterBuilder {
      * into a single statement.
      * @see #putExtras
      */
-    public RouterBuilder putExtra(String name, Parcelable value) {
+    public RouteBuilder putExtra(String name, Parcelable value) {
         if (this.extras == null) {
             this.extras = new Bundle();
         }
@@ -266,7 +266,7 @@ public class RouterBuilder {
      * into a single statement.
      * @see #putExtras
      */
-    public RouterBuilder putExtra(String name, Parcelable[] value) {
+    public RouteBuilder putExtra(String name, Parcelable[] value) {
         if (this.extras == null) {
             this.extras = new Bundle();
         }
@@ -285,8 +285,8 @@ public class RouterBuilder {
      * into a single statement.
      * @see #putExtras
      */
-    public RouterBuilder putParcelableArrayListExtra(String name,
-                                                     ArrayList<? extends Parcelable> value) {
+    public RouteBuilder putParcelableArrayListExtra(String name,
+                                                    ArrayList<? extends Parcelable> value) {
         if (this.extras == null) {
             this.extras = new Bundle();
         }
@@ -305,7 +305,7 @@ public class RouterBuilder {
      * into a single statement.
      * @see #putExtras
      */
-    public RouterBuilder putIntegerArrayListExtra(String name, ArrayList<Integer> value) {
+    public RouteBuilder putIntegerArrayListExtra(String name, ArrayList<Integer> value) {
         if (this.extras == null) {
             this.extras = new Bundle();
         }
@@ -324,7 +324,7 @@ public class RouterBuilder {
      * into a single statement.
      * @see #putExtras
      */
-    public RouterBuilder putStringArrayListExtra(String name, ArrayList<String> value) {
+    public RouteBuilder putStringArrayListExtra(String name, ArrayList<String> value) {
         if (this.extras == null) {
             this.extras = new Bundle();
         }
@@ -343,8 +343,8 @@ public class RouterBuilder {
      * into a single statement.
      * @see #putExtras
      */
-    public RouterBuilder putCharSequenceArrayListExtra(String name,
-                                                       ArrayList<CharSequence> value) {
+    public RouteBuilder putCharSequenceArrayListExtra(String name,
+                                                      ArrayList<CharSequence> value) {
         if (this.extras == null) {
             this.extras = new Bundle();
         }
@@ -363,7 +363,7 @@ public class RouterBuilder {
      * into a single statement.
      * @see #putExtras
      */
-    public RouterBuilder putExtra(String name, Serializable value) {
+    public RouteBuilder putExtra(String name, Serializable value) {
         if (this.extras == null) {
             this.extras = new Bundle();
         }
@@ -382,7 +382,7 @@ public class RouterBuilder {
      * into a single statement.
      * @see #putExtras
      */
-    public RouterBuilder putExtra(String name, boolean[] value) {
+    public RouteBuilder putExtra(String name, boolean[] value) {
         if (this.extras == null) {
             this.extras = new Bundle();
         }
@@ -401,7 +401,7 @@ public class RouterBuilder {
      * into a single statement.
      * @see #putExtras
      */
-    public RouterBuilder putExtra(String name, byte[] value) {
+    public RouteBuilder putExtra(String name, byte[] value) {
         if (this.extras == null) {
             this.extras = new Bundle();
         }
@@ -420,7 +420,7 @@ public class RouterBuilder {
      * into a single statement.
      * @see #putExtras
      */
-    public RouterBuilder putExtra(String name, short[] value) {
+    public RouteBuilder putExtra(String name, short[] value) {
         if (this.extras == null) {
             this.extras = new Bundle();
         }
@@ -439,7 +439,7 @@ public class RouterBuilder {
      * into a single statement.
      * @see #putExtras
      */
-    public RouterBuilder putExtra(String name, char[] value) {
+    public RouteBuilder putExtra(String name, char[] value) {
         if (this.extras == null) {
             this.extras = new Bundle();
         }
@@ -458,7 +458,7 @@ public class RouterBuilder {
      * into a single statement.
      * @see #putExtras
      */
-    public RouterBuilder putExtra(String name, int[] value) {
+    public RouteBuilder putExtra(String name, int[] value) {
         if (this.extras == null) {
             this.extras = new Bundle();
         }
@@ -477,7 +477,7 @@ public class RouterBuilder {
      * into a single statement.
      * @see #putExtras
      */
-    public RouterBuilder putExtra(String name, long[] value) {
+    public RouteBuilder putExtra(String name, long[] value) {
         if (this.extras == null) {
             this.extras = new Bundle();
         }
@@ -496,7 +496,7 @@ public class RouterBuilder {
      * into a single statement.
      * @see #putExtras
      */
-    public RouterBuilder putExtra(String name, float[] value) {
+    public RouteBuilder putExtra(String name, float[] value) {
         if (this.extras == null) {
             this.extras = new Bundle();
         }
@@ -515,7 +515,7 @@ public class RouterBuilder {
      * into a single statement.
      * @see #putExtras
      */
-    public RouterBuilder putExtra(String name, double[] value) {
+    public RouteBuilder putExtra(String name, double[] value) {
         if (this.extras == null) {
             this.extras = new Bundle();
         }
@@ -534,7 +534,7 @@ public class RouterBuilder {
      * into a single statement.
      * @see #putExtras
      */
-    public RouterBuilder putExtra(String name, String[] value) {
+    public RouteBuilder putExtra(String name, String[] value) {
         if (this.extras == null) {
             this.extras = new Bundle();
         }
@@ -553,7 +553,7 @@ public class RouterBuilder {
      * into a single statement.
      * @see #putExtras
      */
-    public RouterBuilder putExtra(String name, CharSequence[] value) {
+    public RouteBuilder putExtra(String name, CharSequence[] value) {
         if (this.extras == null) {
             this.extras = new Bundle();
         }
@@ -572,7 +572,7 @@ public class RouterBuilder {
      * into a single statement.
      * @see #putExtras
      */
-    public RouterBuilder putExtra(String name, Bundle value) {
+    public RouteBuilder putExtra(String name, Bundle value) {
         if (this.extras == null) {
             this.extras = new Bundle();
         }
@@ -586,7 +586,7 @@ public class RouterBuilder {
      * @param src Contains the extras to copy.
      * @see #putExtra
      */
-    public RouterBuilder putExtras(Intent src) {
+    public RouteBuilder putExtras(Intent src) {
         if (src.getExtras() != null) {
             if (this.extras == null) {
                 this.extras = new Bundle(src.getExtras());
@@ -605,7 +605,7 @@ public class RouterBuilder {
      * @param extras The Bundle of extras to add to this intent.
      * @see #putExtra
      */
-    public RouterBuilder putExtras(Bundle extras) {
+    public RouteBuilder putExtras(Bundle extras) {
         if (this.extras == null) {
             this.extras = new Bundle();
         }
@@ -613,7 +613,7 @@ public class RouterBuilder {
         return this;
     }
 
-    public RouterBuilder setRequestCode(int requestCode) {
+    public RouteBuilder setRequestCode(int requestCode) {
         this.requestCode = requestCode;
         return this;
     }
@@ -622,7 +622,7 @@ public class RouterBuilder {
      * @param flag Intent flag
      * @return
      */
-    public RouterBuilder setFlag(int flag) {
+    public RouteBuilder setFlag(int flag) {
         this.flags = flag;
         return this;
     }
@@ -631,12 +631,12 @@ public class RouterBuilder {
      * @param flags Intent flag
      * @return
      */
-    public RouterBuilder addFlag(int flags) {
+    public RouteBuilder addFlag(int flags) {
         this.flags |= flags;
         return this;
     }
 
-    public RouterBuilder addInterceptor(Interceptor interceptor) {
+    public RouteBuilder addInterceptor(Interceptor interceptor) {
         if (this.interceptors == null) {
             this.interceptors = new ArrayList<>();
         }
