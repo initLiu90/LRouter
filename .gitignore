@@ -1,0 +1,11 @@
+.gradle/
+.idea/
+LRouter.iml
+annotation/annotation.iml
+api/api.iml
+app/app.iml
+build/
+compiler/compiler.iml
+demo1/demo1.iml
+demo2/demo2.iml
+

@@ -2,7 +2,7 @@ apply plugin: 'com.android.library'
 
 android {
     compileSdkVersion 27
-
+    buildToolsVersion "27.0.0"
 
 
     defaultConfig {
@@ -36,11 +36,11 @@ android {
 //}
 
 dependencies {
-    implementation fileTree(include: ['*.jar'], dir: 'libs')
-    implementation 'com.android.support:appcompat-v7:27.1.1'
-    compileOnly 'com.google.auto.service:auto-service:1.0-rc2'
-    compileOnly 'com.squareup:javapoet:1.8.0'
+    compile fileTree(include: ['*.jar'], dir: 'libs')
+    compile 'com.android.support:appcompat-v7:27.1.1'
+    compile 'com.google.auto.service:auto-service:1.0-rc2'
+    compile 'com.squareup:javapoet:1.8.0'
     annotationProcessor project(':compiler')
-    implementation project(':annotation')
-    api project(':api')
+    compile project(':annotation')
+    compile project(':api')
 }
