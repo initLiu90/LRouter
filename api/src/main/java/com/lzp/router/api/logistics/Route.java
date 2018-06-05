@@ -7,6 +7,9 @@ import android.net.Uri;
 import android.os.Bundle;
 
 import com.lzp.router.api.RouterCallback;
+import com.lzp.router.api.table.RouterMeta;
+import com.lzp.router.api.table.RouterTable;
+import com.lzp.router.api.utils.RLog;
 import com.lzp.router.api.utils.TextUtils;
 
 import java.util.ArrayList;
@@ -39,7 +42,20 @@ public class Route {
     }
 
     public void route(RouterCallback callback) {
-        Dispatcher.dispatch(this, callback);
+        RouterMeta meta = RouterTable.getInstance().getRouterMeta(mPath);
+        RLog.i("Dispatcher", meta == null ? "not found RouterMeta for path=" + mPath : "find RouterMeta:" + meta.toString());
+
+        List<Interceptor> tmp = new ArrayList<>();
+        tmp.add(new ParamsCheckInterceptor());
+        tmp.addAll(mInterceptors);
+        tmp.add(new RealCallInterceptor());
+
+        mInterceptors.clear();
+        mInterceptors.addAll(tmp);
+
+        InterceptorDispatcher interceptorDispatcher = new InterceptorDispatcher(this, meta, 0, callback);
+        interceptorDispatcher.proceed();
+
     }
 
     public void route() {
