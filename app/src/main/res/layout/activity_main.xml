@@ -4,12 +4,42 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     tools:context=".MainActivity">
 
     <Button
-        android:id="@+id/btn"
+        android:id="@+id/btn_activity"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="asdfadsf" />
+        android:text="start activity" />
+
+    <Button
+        android:id="@+id/btn_startservice"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="start service" />
+
+    <Button
+        android:id="@+id/btn_bindservice"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="bind service" />
+
+    <Button
+        android:id="@+id/btn_fragment"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="open fragment" />
+
+    <Button
+        android:id="@+id/btn_fragmentv4"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="open fragmentv4" />
+
+    <FrameLayout
+        android:id="@+id/content"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
 
 </LinearLayout>

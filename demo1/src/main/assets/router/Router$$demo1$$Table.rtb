@@ -1,2 +1,5 @@
 [group:demo1,path:/demo1/activity1,destination:com.test.demo1.Demo1Activity,type:ACTIVITY]
 [group:demo1,path:/demo1/activity2,destination:com.test.demo1.Demo1Activity2,type:ACTIVITY]
+[group:demo1,path:/demo1/fragment,destination:com.test.demo1.TestFragment,type:FRAGMENT]
+[group:demo1,path:/demo1/fragmentv4,destination:com.test.demo1.TestFragmentv4,type:FRAGMENT_V4]
+[group:demo1,path:/demo1/service,destination:com.test.demo1.TestService,type:SERVICE]

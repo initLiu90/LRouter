@@ -4,7 +4,7 @@ import com.lzp.router.api.utils.RLog;
 
 public class ParamsCheckInterceptor implements Interceptor {
     @Override
-    public boolean intercept(Chain chain) {
+    public Object intercept(Chain chain) {
         RLog.i("ParamsCheckInterceptor", "intercept");
 
         if (chain.getRouterMeta() == null) {

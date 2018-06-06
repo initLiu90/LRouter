@@ -4,5 +4,6 @@
     <application>
         <activity android:name=".Demo1Activity"></activity>
         <activity android:name=".Demo1Activity2"></activity>
+        <service android:name=".TestService"></service>
     </application>
 </manifest>

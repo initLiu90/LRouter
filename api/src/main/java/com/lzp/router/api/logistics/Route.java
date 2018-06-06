@@ -3,6 +3,7 @@ package com.lzp.router.api.logistics;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
+import android.content.ServiceConnection;
 import android.net.Uri;
 import android.os.Bundle;
 
@@ -23,6 +24,7 @@ public class Route {
     private int mFlags;
     private List<Interceptor> mInterceptors = new ArrayList<>();
     private Context mContext;
+    private ServiceConnection mConn;
 
     private static final String RAW_URI = "a08ad5de46a0d4d3";
 
@@ -36,12 +38,13 @@ public class Route {
         mContext = builder.context;
         mExtras = builder.extras;
         mFlags = builder.flags;
+        mConn = builder.conn;
         if (builder.interceptors != null) {
             mInterceptors.addAll(builder.interceptors);
         }
     }
 
-    public void route(RouterCallback callback) {
+    public Object route(RouterCallback callback) {
         RouterMeta meta = RouterTable.getInstance().getRouterMeta(mPath);
         RLog.i("Dispatcher", meta == null ? "not found RouterMeta for path=" + mPath : "find RouterMeta:" + meta.toString());
 
@@ -54,18 +57,19 @@ public class Route {
         mInterceptors.addAll(tmp);
 
         InterceptorDispatcher interceptorDispatcher = new InterceptorDispatcher(this, meta, 0, callback);
-        interceptorDispatcher.proceed();
-
+        return interceptorDispatcher.proceed();
     }
 
-    public void route() {
-        route(null);
+    public Object route() {
+        return route(null);
     }
 
     protected Intent createIntent(Class<?> destination, boolean isActivity) {
         Intent intent = new Intent(mContext, destination);
         intent.addFlags(mFlags);
-        intent.putExtras(mExtras);
+        if (mExtras != null) {
+            intent.putExtras(mExtras);
+        }
         if (mUri != null && !TextUtils.isEmpty(mUri.toString()))
             intent.putExtra(RAW_URI, mUri);
 
@@ -103,6 +107,10 @@ public class Route {
 
     public Context getContext() {
         return mContext;
+    }
+
+    public ServiceConnection getSerciceConnection() {
+        return mConn;
     }
 
 }

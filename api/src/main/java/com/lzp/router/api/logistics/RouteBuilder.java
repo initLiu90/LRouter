@@ -2,6 +2,7 @@ package com.lzp.router.api.logistics;
 
 import android.content.Context;
 import android.content.Intent;
+import android.content.ServiceConnection;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Parcelable;
@@ -31,6 +32,7 @@ public class RouteBuilder {
     int flags;
     Context context;
     List<Interceptor> interceptors;
+    ServiceConnection conn;
 
     public RouteBuilder(Context context, String path) {
         this.context = context;
@@ -613,8 +615,23 @@ public class RouteBuilder {
         return this;
     }
 
+    /**
+     * set requestcode for startActivityForResult()
+     * @param requestCode
+     * @return
+     */
     public RouteBuilder setRequestCode(int requestCode) {
         this.requestCode = requestCode;
+        return this;
+    }
+
+    /**
+     * set ServiceConnection for binderService()
+     * @param conn
+     * @return
+     */
+    public RouteBuilder setServiceConnection(ServiceConnection conn) {
+        this.conn = conn;
         return this;
     }
 

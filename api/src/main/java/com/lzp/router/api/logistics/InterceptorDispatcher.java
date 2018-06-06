@@ -17,14 +17,13 @@ class InterceptorDispatcher implements Interceptor.Chain {
     }
 
     @Override
-    public boolean proceed() {
+    public Object proceed() {
         if (mIndex >= mRouter.getInterceptors().size())
             throw new IndexOutOfBoundsException("index is out of interceptor's size. Current index is " + mIndex + " interceptors's size is " + mRouter.getInterceptors().size());
 
         InterceptorDispatcher next = new InterceptorDispatcher(mRouter, mMeta, mIndex + 1, mCallback);
         Interceptor interceptor = mRouter.getInterceptors().get(mIndex);
-        boolean result = interceptor.intercept(next);
-        return result;
+        return interceptor.intercept(next);
     }
 
     @Override
